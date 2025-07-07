@@ -516,11 +516,11 @@ export default function JunkRemovalLanding() {
               </p>
 
               {/* Scarcity Alert */}
-              <div className="bg-red-600/90 backdrop-blur-sm rounded-2xl p-4 mb-8 border border-red-400/50 shadow-lg">
-                <div className="flex items-center justify-center space-x-3">
-                  <AlertCircle className="w-6 h-6 text-white animate-pulse" />
-                  <span className="text-white font-semibold text-lg">
-                    ⚠️ Limited Slots Available Today – Book Now Before 4PM for Same-Day Pickup!
+              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3 mb-6 border border-white/20">
+                <div className="flex items-center justify-center lg:justify-start space-x-2">
+                  <Clock className="w-4 h-4 text-white/80" />
+                  <span className="text-white/90 text-sm">
+                    Limited slots today – book before 4PM for same-day pickup
                   </span>
                 </div>
               </div>
@@ -539,27 +539,27 @@ export default function JunkRemovalLanding() {
               </div>
 
               {/* Trust Badges */}
-              <div className="flex flex-wrap justify-center lg:justify-start gap-4 mb-8">
+              <div className="flex flex-wrap justify-center lg:justify-start gap-3 mb-8">
                 <Badge
                   variant="secondary"
-                  className="bg-red-600/90 text-white px-4 py-2 text-sm font-semibold backdrop-blur-sm"
+                  className="bg-red-600 text-white px-3 py-2 text-xs font-medium rounded-full shadow-sm hover:bg-red-700 transition-colors"
                 >
-                  <Star className="w-4 h-4 mr-2 fill-current" />
+                  <Star className="w-3 h-3 mr-1.5 fill-current" />
                   #1 Rated in Auckland
                 </Badge>
                 <Badge
                   variant="secondary"
-                  className="bg-black/80 text-white px-4 py-2 text-sm font-semibold backdrop-blur-sm"
+                  className="bg-gray-900 text-white px-3 py-2 text-xs font-medium rounded-full shadow-sm hover:bg-black transition-colors"
                 >
-                  <Clock className="w-4 h-4 mr-2" />
-                  Same-Day Service Guaranteed
+                  <Clock className="w-3 h-3 mr-1.5" />
+                  Same-Day Service
                 </Badge>
                 <Badge
                   variant="secondary"
-                  className="bg-gray-800/80 text-white px-4 py-2 text-sm font-semibold backdrop-blur-sm"
+                  className="bg-green-700 text-white px-3 py-2 text-xs font-medium rounded-full shadow-sm hover:bg-green-800 transition-colors"
                 >
-                  <Leaf className="w-4 h-4 mr-2" />
-                  Eco-Friendly Disposal
+                  <Leaf className="w-3 h-3 mr-1.5" />
+                  Eco-Friendly
                 </Badge>
               </div>
 
@@ -602,21 +602,21 @@ export default function JunkRemovalLanding() {
               ) : (
                 <div className="bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl border border-white/20 overflow-hidden">
                   {/* Form Header */}
-                  <div className="bg-gradient-to-r from-red-500 to-red-600 p-6 text-center">
-                    <h3 className="text-2xl font-bold text-white mb-2">Get Your Free Quote</h3>
-                    <p className="text-red-100">Upload a photo and we'll respond instantly!</p>
+                  <div className="bg-gradient-to-r from-red-500 to-red-600 p-4 text-center">
+                    <h3 className="text-xl font-bold text-white mb-1">Get Your Free Quote</h3>
+                    <p className="text-red-100 text-sm">Upload a photo and we'll respond instantly!</p>
                   </div>
 
                   {/* Form Content */}
-                  <div className="p-6">
-                    <form onSubmit={handleSubmit} className="space-y-4">
+                  <div className="p-4">
+                    <form onSubmit={handleSubmit} className="space-y-3">
                       {/* Photo Upload */}
                       <div>
-                        <label className="block text-sm font-semibold text-gray-700 mb-3">
+                        <label className="block text-sm font-semibold text-gray-700 mb-2">
                           Upload Photos of Your Junk *
                         </label>
                         <div className="relative group">
-                          <div className="border-2 border-dashed border-gray-200 rounded-2xl p-4 text-center hover:border-red-400 hover:bg-red-50/50 transition-all duration-300 group-hover:scale-[1.02]">
+                          <div className="border-2 border-dashed border-gray-200 rounded-xl p-3 text-center hover:border-red-400 hover:bg-red-50/50 transition-all duration-300">
                             <input
                               type="file"
                               accept="image/*"
@@ -627,20 +627,20 @@ export default function JunkRemovalLanding() {
                               required
                             />
                             <label htmlFor="file-upload" className="cursor-pointer">
-                              <div className="bg-red-100 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-3 group-hover:bg-red-200 transition-colors">
-                                <Upload className="w-6 h-6 text-red-600" />
+                              <div className="bg-red-100 w-8 h-8 rounded-full flex items-center justify-center mx-auto mb-2 group-hover:bg-red-200 transition-colors">
+                                <Upload className="w-4 h-4 text-red-600" />
                               </div>
                               {uploadedFiles.length > 0 ? (
-                                <div className="space-y-2">
-                                  <p className="text-red-600 font-semibold">
+                                <div>
+                                  <p className="text-red-600 font-semibold text-sm">
                                     {uploadedFiles.length} photo{uploadedFiles.length > 1 ? 's' : ''} selected
                                   </p>
-                                  <p className="text-xs text-gray-500">Click to change photos</p>
+                                  <p className="text-xs text-gray-500">Click to change</p>
                                 </div>
                               ) : (
-                                <div className="space-y-2">
-                                  <p className="text-gray-700 font-semibold">Click to upload or drag and drop</p>
-                                  <p className="text-gray-500 text-sm">PNG, JPG up to 5MB each (multiple files allowed)</p>
+                                <div>
+                                  <p className="text-gray-700 font-semibold text-sm">Click to upload</p>
+                                  <p className="text-gray-500 text-xs">PNG, JPG up to 5MB</p>
                                 </div>
                               )}
                             </label>
@@ -649,8 +649,8 @@ export default function JunkRemovalLanding() {
                       </div>
 
                       {/* Contact Information */}
-                      <div className="grid grid-cols-2 gap-4">
-                        <div className="space-y-2">
+                      <div className="grid grid-cols-2 gap-3">
+                        <div className="space-y-1">
                           <label className="block text-sm font-semibold text-gray-700">Name *</label>
                           <input
                             type="text"
@@ -658,11 +658,11 @@ export default function JunkRemovalLanding() {
                             value={formData.name}
                             onChange={handleInputChange}
                             required
-                            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-red-500 focus:ring-2 focus:ring-red-500/20 transition-all duration-200 bg-gray-50/50 focus:bg-white"
+                            className="w-full px-3 py-2 rounded-lg border border-gray-200 focus:border-red-500 focus:ring-2 focus:ring-red-500/20 transition-all duration-200 bg-gray-50/50 focus:bg-white text-sm"
                             placeholder="Your name"
                           />
                         </div>
-                        <div className="space-y-2">
+                        <div className="space-y-1">
                           <label className="block text-sm font-semibold text-gray-700">Phone *</label>
                           <input
                             type="tel"
@@ -670,13 +670,13 @@ export default function JunkRemovalLanding() {
                             value={formData.phone}
                             onChange={handleInputChange}
                             required
-                            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-red-500 focus:ring-2 focus:ring-red-500/20 transition-all duration-200 bg-gray-50/50 focus:bg-white"
+                            className="w-full px-3 py-2 rounded-lg border border-gray-200 focus:border-red-500 focus:ring-2 focus:ring-red-500/20 transition-all duration-200 bg-gray-50/50 focus:bg-white text-sm"
                             placeholder="021 xxx xxx"
                           />
                         </div>
                       </div>
 
-                      <div className="space-y-2">
+                      <div className="space-y-1">
                         <label className="block text-sm font-semibold text-gray-700">Email *</label>
                         <input
                           type="email"
@@ -684,12 +684,12 @@ export default function JunkRemovalLanding() {
                           value={formData.email}
                           onChange={handleInputChange}
                           required
-                          className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-red-500 focus:ring-2 focus:ring-red-500/20 transition-all duration-200 bg-gray-50/50 focus:bg-white"
+                          className="w-full px-3 py-2 rounded-lg border border-gray-200 focus:border-red-500 focus:ring-2 focus:ring-red-500/20 transition-all duration-200 bg-gray-50/50 focus:bg-white text-sm"
                           placeholder="your@email.com"
                         />
                       </div>
 
-                      <div className="space-y-2">
+                      <div className="space-y-1">
                         <label className="block text-sm font-semibold text-gray-700">Address *</label>
                         <input
                           type="text"
@@ -698,11 +698,11 @@ export default function JunkRemovalLanding() {
                           onChange={handleInputChange}
                           placeholder="Auckland address for pickup"
                           required
-                          className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-red-500 focus:ring-2 focus:ring-red-500/20 transition-all duration-200 bg-gray-50/50 focus:bg-white"
+                          className="w-full px-3 py-2 rounded-lg border border-gray-200 focus:border-red-500 focus:ring-2 focus:ring-red-500/20 transition-all duration-200 bg-gray-50/50 focus:bg-white text-sm"
                         />
                       </div>
 
-                      <div className="space-y-2">
+                      <div className="space-y-1">
                         <label className="block text-sm font-semibold text-gray-700">
                           Additional Details (Optional)
                         </label>
@@ -710,8 +710,8 @@ export default function JunkRemovalLanding() {
                           name="message"
                           value={formData.message}
                           onChange={handleInputChange}
-                          placeholder="Tell us more about your junk removal needs..."
-                          className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-red-500 focus:ring-2 focus:ring-red-500/20 transition-all duration-200 bg-gray-50/50 focus:bg-white resize-none"
+                          placeholder="Tell us more..."
+                          className="w-full px-3 py-2 rounded-lg border border-gray-200 focus:border-red-500 focus:ring-2 focus:ring-red-500/20 transition-all duration-200 bg-gray-50/50 focus:bg-white resize-none text-sm"
                           rows={2}
                         />
                       </div>
@@ -719,7 +719,7 @@ export default function JunkRemovalLanding() {
                       <button
                         type="submit"
                         disabled={isSubmitting}
-                        className="w-full bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white py-3 px-6 rounded-xl text-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-[1.02] transition-all duration-200 focus:ring-4 focus:ring-red-500/30 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                        className="w-full bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white py-2.5 px-4 rounded-lg text-base font-semibold shadow-lg hover:shadow-xl transform hover:scale-[1.02] transition-all duration-200 focus:ring-4 focus:ring-red-500/30 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                       >
                         {isSubmitting ? "Sending Quote Request..." : "Submit for Instant Quote"}
                       </button>
