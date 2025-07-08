@@ -329,11 +329,11 @@ export default function JunkRemovalLanding() {
             {/* Logo Section */}
             <div className="flex items-center space-x-3">
               <Image
-                src="/bin-busters-new-logo.png"
-                alt="Bin Busters Logo"
+                src="/bin-busters-monster-logo.jpg"
+                alt="Bin Busters Junk Removal Logo"
                 width={400}
                 height={120}
-                className="h-24 w-auto"
+                className="h-28 w-auto scale-110"
               />
             </div>
 
