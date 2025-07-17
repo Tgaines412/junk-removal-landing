@@ -34,32 +34,7 @@ import {
 
 
 
-// Success Message Component
-function SuccessMessage({ message, onClose }: { message: string; onClose: () => void }) {
-  return (
-    <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-2xl p-8 max-w-md w-full text-center shadow-2xl animate-in zoom-in-95 duration-300 relative">
-        <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-          <CheckCircle className="w-8 h-8 text-green-600" />
-        </div>
-        <h3 className="text-xl font-bold text-gray-900 mb-2">Request Received!</h3>
-        <p className="text-gray-600 mb-6 leading-relaxed">{message}</p>
-        <div className="bg-blue-50 rounded-xl p-4 mb-6">
-          <div className="flex items-center justify-center space-x-2 text-blue-700">
-            <Clock className="w-5 h-5" />
-                              <span className="font-semibold">We'll get back to you instantly!</span>
-          </div>
-        </div>
-        <button
-          onClick={onClose}
-          className="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white py-3 px-6 rounded-xl font-semibold transition-all duration-200"
-        >
-          Got it!
-        </button>
-      </div>
-    </div>
-  )
-}
+
 
 function TestimonialCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -181,7 +156,6 @@ export default function JunkRemovalLanding() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitMessage, setSubmitMessage] = useState("")
   const [submitError, setSubmitError] = useState(false)
-  const [showSuccess, setShowSuccess] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isServicesOpen, setIsServicesOpen] = useState(false)
   const [showFloatingButton, setShowFloatingButton] = useState(false)
@@ -241,18 +215,11 @@ export default function JunkRemovalLanding() {
       }
 
       if (result.success) {
-        // Show success message
-        setShowSuccess(true)
-        
-        // Reset form
-        setFormData({
-          name: "",
-          phone: "",
-          email: "",
-          address: "",
-          message: "",
+        // Redirect to confirmation page with user's name
+        const params = new URLSearchParams({
+          name: formData.name || "there"
         })
-        setUploadedFiles([])
+        window.location.href = `/quote-confirmation?${params.toString()}`
       } else {
         setSubmitError(true)
         setSubmitMessage(result.message)
@@ -1090,13 +1057,7 @@ export default function JunkRemovalLanding() {
         </div>
       </footer>
 
-      {/* Success Message */}
-      {showSuccess && (
-        <SuccessMessage
-          message="Thank you! We have received your junk removal request. Our team will review your photos and details, and get back to you instantly with a quote."
-          onClose={() => setShowSuccess(false)}
-        />
-      )}
+
 
       {/* Floating Quote Button */}
       {showFloatingButton && (
