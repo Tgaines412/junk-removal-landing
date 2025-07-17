@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect } from "react"
+import { useEffect, Suspense } from "react"
 import { useSearchParams } from "next/navigation"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
@@ -33,7 +33,7 @@ declare global {
   }
 }
 
-export default function QuoteConfirmationPage() {
+function QuoteConfirmationContent() {
   const searchParams = useSearchParams()
   const name = searchParams.get("name") || "there"
 
@@ -237,5 +237,20 @@ export default function QuoteConfirmationPage() {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function QuoteConfirmationPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gradient-to-br from-red-50 via-white to-red-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-600 mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading...</p>
+        </div>
+      </div>
+    }>
+      <QuoteConfirmationContent />
+    </Suspense>
   )
 } 
