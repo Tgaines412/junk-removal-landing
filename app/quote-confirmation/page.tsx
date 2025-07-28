@@ -199,7 +199,7 @@ function QuoteConfirmationContent() {
                   </Button>
                   <Button
                     variant="outline"
-                    onClick={() => window.open("https://www.google.com/maps/search/junk+removal+auckland")}
+                    onClick={() => window.open("https://www.google.com/search?q=Bin+Busters+Junk+Removal+Auckland")}
                     className="border-gray-600 text-gray-600 hover:bg-gray-600 hover:text-white"
                   >
                     <MapPin className="w-4 h-4 mr-2" />

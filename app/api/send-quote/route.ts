@@ -7,6 +7,15 @@ export async function POST(request: NextRequest) {
   console.log("API route called - /api/send-quote")
 
   try {
+    // Check content type
+    const contentType = request.headers.get("content-type")
+    if (!contentType || !contentType.includes("multipart/form-data")) {
+      return NextResponse.json({
+        success: false,
+        message: "Invalid content type. Please submit a form with files.",
+      }, { status: 400 })
+    }
+
     const formData = await request.formData()
 
     // Extract form data
@@ -34,16 +43,16 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({
         success: false,
         message: "Please fill in all required fields.",
-      })
+      }, { status: 400 })
     }
 
-    // Validate file sizes (max 5MB each)
+    // Validate file sizes (max 10MB each, increased from 5MB)
     for (const photo of photos) {
-      if (photo.size > 5 * 1024 * 1024) {
+      if (photo.size > 10 * 1024 * 1024) {
         return NextResponse.json({
           success: false,
-          message: `Photo "${photo.name}" is too large. Each photo must be less than 5MB. Please compress your images and try again.`,
-        })
+          message: `Photo "${photo.name}" is too large. Each photo must be less than 10MB. Please compress your images and try again.`,
+        }, { status: 413 })
       }
     }
 
@@ -174,7 +183,7 @@ export async function POST(request: NextRequest) {
         return NextResponse.json({
           success: false,
           message: "Sorry, there was an error sending your request. Please call us directly at 021 448 097.",
-        })
+        }, { status: 500 })
       }
 
       console.log("API - Email sent successfully:", data)
@@ -188,13 +197,13 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({
         success: false,
         message: "Sorry, there was an error sending your request. Please call us directly at 021 448 097.",
-      })
+      }, { status: 500 })
     }
   } catch (error) {
     console.error("API - Unexpected error:", error)
     return NextResponse.json({
       success: false,
       message: "Sorry, there was an error sending your request. Please call us directly at 021 448 097.",
-    })
+    }, { status: 500 })
   }
 }

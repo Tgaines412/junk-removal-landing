@@ -170,7 +170,20 @@ export default function JunkRemovalLanding() {
   const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files.length > 0) {
       const files = Array.from(e.target.files)
-      setUploadedFiles(files)
+      
+      // Validate file sizes (max 10MB each)
+      const maxSize = 10 * 1024 * 1024 // 10MB
+      const validFiles = files.filter(file => {
+        if (file.size > maxSize) {
+          alert(`File "${file.name}" is too large. Each file must be less than 10MB. Please compress your images and try again.`)
+          return false
+        }
+        return true
+      })
+      
+      if (validFiles.length > 0) {
+        setUploadedFiles(validFiles)
+      }
     }
   }
 
@@ -205,16 +218,34 @@ export default function JunkRemovalLanding() {
         console.log("Server action failed, trying API route...", serverActionError)
 
         // Fallback to API route
-        const response = await fetch("/api/send-quote", {
-          method: "POST",
-          body: formDataToSend,
-        })
+        try {
+          const response = await fetch("/api/send-quote", {
+            method: "POST",
+            body: formDataToSend,
+          })
 
-        result = await response.json()
-        console.log("API route result:", result)
+          // Check if response is ok before trying to parse JSON
+          if (!response.ok) {
+            if (response.status === 413) {
+              throw new Error("File size too large. Please compress your images and try again.")
+            }
+            throw new Error(`Server error: ${response.status} ${response.statusText}`)
+          }
+
+          const contentType = response.headers.get("content-type")
+          if (!contentType || !contentType.includes("application/json")) {
+            throw new Error("Server returned invalid response format")
+          }
+
+          result = await response.json()
+          console.log("API route result:", result)
+        } catch (apiError) {
+          console.error("API route error:", apiError)
+          throw apiError
+        }
       }
 
-      if (result.success) {
+      if (result && result.success) {
         // Redirect to confirmation page with user's name
         const params = new URLSearchParams({
           name: formData.name || "there"
@@ -222,7 +253,7 @@ export default function JunkRemovalLanding() {
         window.location.href = `/quote-confirmation?${params.toString()}`
       } else {
         setSubmitError(true)
-        setSubmitMessage(result.message)
+        setSubmitMessage(result?.message || "An unexpected error occurred. Please try again.")
         setTimeout(() => {
           setSubmitError(false)
           setSubmitMessage("")
@@ -231,7 +262,7 @@ export default function JunkRemovalLanding() {
     } catch (error) {
       console.error("Error submitting form:", error)
       setSubmitError(true)
-      setSubmitMessage("Sorry, there was an error sending your request. Please call us directly at 021 448 097.")
+      setSubmitMessage(error instanceof Error ? error.message : "Sorry, there was an error sending your request. Please call us directly at 021 448 097.")
       setTimeout(() => {
         setSubmitError(false)
         setSubmitMessage("")
@@ -591,7 +622,7 @@ export default function JunkRemovalLanding() {
                               onChange={handleFileUpload}
                               className="hidden"
                               id="file-upload"
-                              required
+                              name="file-upload"
                             />
                             <label htmlFor="file-upload" className="cursor-pointer">
                               <div className="bg-red-100 w-8 h-8 rounded-full flex items-center justify-center mx-auto mb-2 group-hover:bg-red-200 transition-colors">
@@ -607,7 +638,7 @@ export default function JunkRemovalLanding() {
                               ) : (
                                 <div>
                                   <p className="text-gray-700 font-semibold text-sm">Click to upload</p>
-                                  <p className="text-gray-500 text-xs">PNG, JPG up to 5MB</p>
+                                  <p className="text-gray-500 text-xs">PNG, JPG up to 10MB</p>
                                 </div>
                               )}
                             </label>

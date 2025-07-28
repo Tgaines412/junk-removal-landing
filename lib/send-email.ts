@@ -37,6 +37,16 @@ export async function sendQuoteEmail(formData: FormData) {
       }
     }
 
+    // Validate file sizes (max 10MB each, increased from 5MB)
+    for (const photo of photos) {
+      if (photo.size > 10 * 1024 * 1024) {
+        return {
+          success: false,
+          message: `Photo "${photo.name}" is too large. Each photo must be less than 10MB. Please compress your images and try again.`,
+        }
+      }
+    }
+
     // Create professional HTML email content
     const htmlContent = `
       <!DOCTYPE html>
