@@ -59,6 +59,9 @@ export default function TermsPage() {
               <p>
                 <strong>Afterpay:</strong> Afterpay payments are processed in 4 installments. The first payment (25%) is required to confirm your booking.
               </p>
+              <p>
+                <strong>Refund Processing:</strong> Where applicable, refunds can take up to 14 business days to process and appear in your account.
+              </p>
             </div>
           </section>
 
