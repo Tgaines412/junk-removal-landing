@@ -72,6 +72,11 @@ export function SiteFooter() {
                 </Link>
               </div>
               <div>
+                <Link href="/terms" className="hover:text-white">
+                  Terms & Conditions
+                </Link>
+              </div>
+              <div>
                 <Link href="/#services" className="hover:text-white">
                   Services
                 </Link>
