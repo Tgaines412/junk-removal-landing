@@ -19,7 +19,6 @@ import {
   Heart,
   Globe,
   Zap,
-  Tree,
   Shield
 } from 'lucide-react'
 
@@ -269,7 +268,7 @@ export default function BlogPostPage() {
                 
                 <div className="border border-gray-200 rounded-lg p-6">
                   <h4 className="text-lg font-semibold mb-3 flex items-center">
-                    <Tree className="w-5 h-5 mr-2 text-red-600" />
+                    <Leaf className="w-5 h-5 mr-2 text-red-600" />
                     Organic Waste Processing
                   </h4>
                   <p className="text-gray-600 mb-3">
