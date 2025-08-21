@@ -1,0 +1,20 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://binbusters.co.nz/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1
+
+# Disallow admin areas (if any)
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+
+# Allow important pages
+Allow: /what-we-remove/
+Allow: /afterpay/
+Allow: /marketing-plan/
+Allow: /privacy-policy/
+Allow: /quote-confirmation/

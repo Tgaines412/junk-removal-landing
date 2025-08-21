@@ -87,6 +87,11 @@ export function SiteFooter() {
                 </Link>
               </div>
               <div>
+                <Link href="/blog" className="hover:text-white">
+                  Blog
+                </Link>
+              </div>
+              <div>
                 <Link href="/#contact" className="hover:text-white">
                   Contact
                 </Link>

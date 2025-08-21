@@ -286,12 +286,12 @@ export default function JunkRemovalLanding() {
   }, [])
 
   const services = [
-    { name: "Household Junk", icon: Home, description: "Furniture, appliances, general household items" },
-    { name: "Office Junk", icon: Building, description: "Office furniture, equipment, commercial cleanouts" },
-    { name: "Green Waste", icon: TreePine, description: "Garden waste, branches, lawn clippings" },
-    { name: "Tenancy Clean Ups", icon: Users, description: "End of lease cleanouts, property clearing" },
-    { name: "E-waste", icon: Monitor, description: "Electronics, computers, old appliances" },
-    { name: "Anything Else", icon: Package, description: "Custom jobs, miscellaneous items, special requests" },
+    { name: "Household Junk Removal Auckland", icon: Home, description: "Furniture removal, appliance disposal, general household junk. Professional Auckland rubbish removal service." },
+    { name: "Office Junk Removal Auckland", icon: Building, description: "Office furniture disposal, commercial equipment removal, business cleanouts across Auckland." },
+    { name: "Garden Waste Removal Auckland", icon: TreePine, description: "Green waste disposal, branch removal, lawn clippings, garden cleanup Auckland wide." },
+    { name: "Tenancy Clean Up Auckland", icon: Users, description: "End of lease cleanouts, property clearing, tenancy rubbish removal Auckland." },
+    { name: "E-Waste Disposal Auckland", icon: Monitor, description: "Electronics recycling, computer disposal, appliance removal Auckland. Eco-friendly e-waste disposal." },
+    { name: "House Clearance Auckland", icon: Package, description: "Complete house clearances, deceased estate cleanups, hoarding cleanup Auckland wide." },
   ]
 
   const beforeAfterImages = [
@@ -333,10 +333,10 @@ export default function JunkRemovalLanding() {
             {/* Left Side - Hero Content */}
             <div className="text-center lg:text-left">
                               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight drop-shadow-lg">
-                  Auckland's Fastest Junk Removal –<span className="text-red-400"> Same-Day Pickup, Free Instant Quote</span>
+                  Auckland's #1 Junk Removal Service –<span className="text-red-400"> Same-Day Pickup, Free Instant Quote</span>
                 </h1>
               <p className="text-xl md:text-2xl text-gray-100 mb-8 leading-relaxed drop-shadow-md">
-                Upload a photo of your junk, and we'll get back to you fast – no waiting, no hassle.
+                Professional rubbish removal Auckland wide. Upload photos for instant quotes. Same-day service available. Eco-friendly disposal. Serving North Shore, South Auckland, East Auckland, West Auckland, Central Auckland, and Hibiscus Coast.
               </p>
 
               {/* Scarcity Alert */}
@@ -689,11 +689,12 @@ export default function JunkRemovalLanding() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <div className="mb-16">
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">About Bin Busters</h2>
+              <h2 className="text-4xl font-bold text-gray-900 mb-6">About Bin Busters - Auckland's #1 Junk Removal Service</h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                We're Auckland's premier junk removal service, dedicated to helping families and businesses reclaim their
-                space. With years of experience and a commitment to eco-friendly disposal, we've become the #1 rated
-                service in the region.
+                We're Auckland's premier junk removal and rubbish removal service, dedicated to helping families and businesses reclaim their space across all Auckland areas. With years of experience in waste disposal and a commitment to eco-friendly disposal methods, we've become the #1 rated junk removal service in Auckland, North Shore, South Auckland, East Auckland, West Auckland, Central Auckland, and Hibiscus Coast.
+              </p>
+              <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed mt-4">
+                Our professional team specializes in furniture removal, appliance disposal, garden waste removal, tenancy clean-ups, e-waste disposal, house clearances, and commercial waste collection. We offer same-day service, instant photo quotes, and competitive pricing starting from just $30.
               </p>
             </div>
             
@@ -740,13 +741,69 @@ export default function JunkRemovalLanding() {
         </div>
       </section>
 
+      {/* FAQ Section for SEO */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">Frequently Asked Questions - Junk Removal Auckland</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Get answers to common questions about our Auckland junk removal services
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto space-y-6">
+            <div className="bg-gray-50 rounded-2xl p-8">
+              <h3 className="text-xl font-bold text-gray-900 mb-4">How much does junk removal cost in Auckland?</h3>
+              <p className="text-gray-700 leading-relaxed">
+                Our junk removal prices start from $30 for small items like dryers, $50 for washing machines, and $120 for 2-seater couches. We offer competitive pricing with no hidden fees. Get an instant quote by uploading photos of your junk.
+              </p>
+            </div>
+
+            <div className="bg-gray-50 rounded-2xl p-8">
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Do you offer same-day junk removal in Auckland?</h3>
+              <p className="text-gray-700 leading-relaxed">
+                Yes! We provide same-day junk removal service across Auckland. Book before 4PM for same-day pickup. We serve North Shore, South Auckland, East Auckland, West Auckland, Central Auckland, and Hibiscus Coast areas.
+              </p>
+            </div>
+
+            <div className="bg-gray-50 rounded-2xl p-8">
+              <h3 className="text-xl font-bold text-gray-900 mb-4">What types of junk do you remove?</h3>
+              <p className="text-gray-700 leading-relaxed">
+                We remove all types of junk including furniture, appliances, garden waste, e-waste, office equipment, tenancy clean-ups, house clearances, and more. No job is too big or small for our professional team.
+              </p>
+            </div>
+
+            <div className="bg-gray-50 rounded-2xl p-8">
+              <h3 className="text-xl font-bold text-gray-900 mb-4">How do I get a quote for junk removal?</h3>
+              <p className="text-gray-700 leading-relaxed">
+                Getting a quote is easy! Simply upload photos of your junk using our online form, provide your contact details, and we'll get back to you with an instant quote. No waiting, no hassle.
+              </p>
+            </div>
+
+            <div className="bg-gray-50 rounded-2xl p-8">
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Do you recycle and dispose of junk responsibly?</h3>
+              <p className="text-gray-700 leading-relaxed">
+                Absolutely! We're committed to eco-friendly disposal. We recycle and re-purpose items whenever possible, donate usable items to charity, and ensure proper disposal of all waste materials.
+              </p>
+            </div>
+
+            <div className="bg-gray-50 rounded-2xl p-8">
+              <h3 className="text-xl font-bold text-gray-900 mb-4">What areas do you service in Auckland?</h3>
+              <p className="text-gray-700 leading-relaxed">
+                We provide junk removal services across all of Auckland including North Shore, South Auckland, East Auckland, West Auckland, Central Auckland, Hibiscus Coast, and surrounding areas. Call us to confirm coverage for your specific location.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Service Area Section */}
       <section id="areas" className="py-20 bg-gradient-to-br from-red-50 via-white to-red-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">Auckland Service Areas</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">Auckland Junk Removal Service Areas</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              We provide fast, reliable junk removal services across Auckland and surrounding areas
+              We provide fast, reliable junk removal and rubbish removal services across all Auckland areas including North Shore, South Auckland, East Auckland, West Auckland, Central Auckland, and Hibiscus Coast
             </p>
           </div>
 
@@ -776,14 +833,42 @@ export default function JunkRemovalLanding() {
               </div>
             </div>
 
+            {/* Local SEO Content */}
+            <div className="grid md:grid-cols-2 gap-8 mt-12">
+              <div className="bg-white rounded-2xl p-8 shadow-lg">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">North Shore Junk Removal</h3>
+                <p className="text-gray-600 mb-4">
+                  Professional junk removal services in North Shore Auckland including Takapuna, Devonport, Milford, Browns Bay, and surrounding areas. Same-day service available.
+                </p>
+                <ul className="text-gray-600 text-sm space-y-1">
+                  <li>• Furniture removal North Shore</li>
+                  <li>• Appliance disposal North Shore</li>
+                  <li>• Garden waste removal North Shore</li>
+                  <li>• Tenancy clean-ups North Shore</li>
+                </ul>
+              </div>
+              
+              <div className="bg-white rounded-2xl p-8 shadow-lg">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">South Auckland Junk Removal</h3>
+                <p className="text-gray-600 mb-4">
+                  Reliable junk removal in South Auckland covering Manukau, Papatoetoe, Manurewa, Takanini, and nearby suburbs. Fast response times and competitive pricing.
+                </p>
+                <ul className="text-gray-600 text-sm space-y-1">
+                  <li>• House clearance South Auckland</li>
+                  <li>• Office junk removal South Auckland</li>
+                  <li>• E-waste disposal South Auckland</li>
+                  <li>• Commercial waste collection</li>
+                </ul>
+              </div>
+            </div>
+
             {/* Contact Section */}
-            <div className="text-center">
+            <div className="text-center mt-12">
               <div className="bg-white rounded-2xl p-8 shadow-lg">
                 <MapPin className="w-12 h-12 text-red-500 mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">Service Coverage</h3>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Auckland-Wide Service Coverage</h3>
                 <p className="text-gray-600 mb-6 text-lg">
-                  We service all of Auckland and surrounding areas. Call us to confirm coverage for your specific
-                  location.
+                  We service all Auckland areas including North Shore, South Auckland, East Auckland, West Auckland, Central Auckland, Hibiscus Coast, and surrounding regions. Call us to confirm coverage for your specific location.
                 </p>
                 <div className="flex justify-center">
                   <Button
